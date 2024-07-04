@@ -1,0 +1,23 @@
+{
+  "Github Repos": {
+    "name": "Github Repos",
+    "url": "https://github.com/pitoniak32?tab=repositories",
+    "description": "Why is this my life",
+    "tags": [
+      "github",
+      "code",
+      "personal"
+    ]
+  },
+  "YouTube": {
+    "name": "YouTube",
+    "url": "https://www.youtube.com/",
+    "description": "Watching YouTube videos is a great way to spend the entire day",
+    "tags": [
+      "youtube",
+      "entertainment",
+      "shootme",
+      "please"
+    ]
+  }
+}
