@@ -5,6 +5,7 @@ use std::io::Write;
 use std::path::{Path, PathBuf};
 
 use crate::bookmark::Bookmark;
+use crate::cli::table::build_table;
 
 use super::error::Error;
 use super::types::{Cli, Command};
@@ -19,8 +20,27 @@ pub fn run(cli: Cli, bookmarks: &mut HashMap<String, Bookmark>) -> Result<()> {
         } => {
             bookmarks.insert(name.clone(), Bookmark::new(name, url, description, tags));
         }
-        Command::List => {
-            log::info!("bookmarks: {:#?}", bookmarks);
+        Command::List { filter_tags, table } => {
+            let filtered_bookmarks = bookmarks
+                .iter()
+                .filter(|(_k, v)| {
+                    filter_tags.iter().any(|ft| {
+                        v.tags
+                            .iter()
+                            .map(|vt| vt.to_lowercase())
+                            .collect::<Vec<_>>()
+                            .contains(&ft.to_lowercase())
+                    })
+                })
+                .collect::<HashMap<_, _>>();
+
+            log::debug!("filtered: {filtered_bookmarks:#?}",);
+
+            if table {
+                let bms = filtered_bookmarks.values().copied().collect::<Vec<_>>();
+
+                println!("{}", build_table(&bms))
+            }
         }
         Command::Edit { name } => {
             let result = if let Some(found) = bookmarks.get(&name) {

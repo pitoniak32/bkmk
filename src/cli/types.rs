@@ -26,5 +26,10 @@ pub enum Command {
         #[arg(short, long)]
         name: String,
     },
-    List,
+    List {
+        #[arg(short, long, value_delimiter = ',')]
+        filter_tags: Vec<String>,
+        #[arg(short, long)]
+        table: bool,
+    },
 }

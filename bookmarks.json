@@ -1,12 +1,12 @@
 {
-  "Github Repos": {
-    "name": "Github Repos",
-    "url": "https://github.com/pitoniak32?tab=repositories",
-    "description": "Why is this my life",
+  "bkmk": {
+    "name": "bkmk",
+    "url": "https://github.com/pitoniak32/bkmk",
+    "description": "This repo",
     "tags": [
       "github",
-      "code",
-      "personal"
+      "personal",
+      "bookmarks"
     ]
   },
   "YouTube": {
@@ -18,6 +18,16 @@
       "entertainment",
       "shootme",
       "please"
+    ]
+  },
+  "Github Repos": {
+    "name": "Github Repos",
+    "url": "https://github.com/pitoniak32?tab=repositories",
+    "description": "Why is this my life",
+    "tags": [
+      "github",
+      "code",
+      "personal"
     ]
   }
 }
